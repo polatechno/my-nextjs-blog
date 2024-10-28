@@ -1,5 +1,5 @@
 
-import { Inter, Montserrat } from "next/font/google";
+import {Montserrat } from "next/font/google";
 
 import "./globals.css";
 import Header from "@/components/Header";
