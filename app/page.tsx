@@ -13,10 +13,6 @@ interface PostResponse {
   limit: number;
 }
 
-export function delay(ms: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 const fetchPosts = async (): Promise<PostResponse | null> => {
   try {
     const response = await fetch("https://dummyjson.com/posts?limit=10");
