@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   content: [
@@ -19,6 +20,13 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.font-inherit': { font: 'inherit' },
+        '.guty': { display: 'flex', }
+      });
+    }),
+  ],
 };
 export default config;
