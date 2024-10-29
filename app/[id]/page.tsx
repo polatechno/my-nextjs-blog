@@ -13,6 +13,10 @@ interface PageProps {
 const getPost = async (id: string): Promise<Post | null> => {
     try {
         const response = await fetch(`https://dummyjson.com/posts/${id}`);
+
+        if (response.status == 404)
+            return null
+
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -45,6 +49,7 @@ export default async function Page({ params }: PageProps) {
             </div>
             <h1 className='text-4xl mt-4'>{title}</h1>
             <p className='mt-4 text-xl'>{body}</p>
+
         </div>
     )
 }
